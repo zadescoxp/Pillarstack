@@ -1,8 +1,12 @@
+'use client'
+
 import React from "react";
 import Image from "next/image";
 import Button from "@/components/Button/Button";
+import { useRouter } from "next/navigation";
 
 export default function ErrorPage() {
+  const route = useRouter()
   return (
     <div className="h-screen flex items-center justify-center -m-20 flex-col ">
       <div className="relative grid grid-cols-2 grid-rows-2 place-items-center mb-12">
@@ -21,7 +25,7 @@ export default function ErrorPage() {
           the page you’re looking for does not exist.
         </p>
       </div>
-      <Button href="/">Go Back home</Button>
+      <Button onClick={() => route.push("/")}>Go Back home</Button>
     </div>
   );
 }
